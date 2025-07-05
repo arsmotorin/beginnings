@@ -1,5 +1,4 @@
 use rand::Rng;
-use std::io;
 
 pub fn main() {
     let mut player_score = 0;
@@ -8,7 +7,7 @@ pub fn main() {
     let choices = ["rock", "paper", "scissors"];
     println!("Hey, welcome to the 'Rock, Paper, Scissors' game!");
 
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
     // For _ in 0..rounds means we will play for a fixed number of rounds
     // is a variable that holds the number of rounds to play
     // _ is a placeholder for the loop variable since we don't need it
@@ -40,7 +39,7 @@ pub fn main() {
             continue;
         }
 
-        let computer_choice = choices[rng.gen_range(0..choices.len())];
+        let computer_choice = choices[rng.random_range(0..choices.len())];
         println!("Computer chose: {}", computer_choice);
 
         if player_choice == computer_choice {
